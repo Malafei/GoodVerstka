@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Контакти</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-datepicker3.min.css" rel="stylesheet" />
+    <link href="/css/footer.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/">Головна</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/contacts.html">Контакти</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Products.html">Продукти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/callback.html">Зворотній зв'язок</a>
+
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav px-3">
+                    <li class="nav-item text-nowrap">
+                        <a class="nav-link text-warning" id="Regestry">Реєструватися</a>
+                    </li>
+                    <li class="nav-item text-nowrap">
+                        <a class="nav-link text-warning" href="/login.html">Вхід</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="modal" id="modalReg" tabindex="-1" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Реєстрація</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="txtName">Телефон</label>
+                        <input id="txtPhone" class="form-control" type="text" value="">
+                        <div class="invalid-feedback">
+                            Вкажіть у форматі: +38(xxx)xxx-xx-xx
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtLastName">Логін</label>
+                        <input type="text" class="form-control" id="txtLogin" />
+                        <div class="invalid-feedback">
+                            Поле обовязкове для введення.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtName">Пароль</label>
+                        <input type="text" class="form-control" id="txtPassword" />
+                        <div class="invalid-feedback">
+                            Паролі повині співпадати.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtName">Підтвердіть пароль</label>
+                        <input type="text" class="form-control" id="txtConfirmPassword" />
+                        <div class="invalid-feedback">
+                            Паролі повині співпадати.
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="img/No_Image_Available.jpg" id="imgPhotoe" width="100%" />
+                        </div>
+                        <div class="col-md-9">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="fileImages" required>
+                                <label class="custom-file-label" for="fileImages" id="imageName">Оберіть файл...</label>
+                                <div class="invalid-feedback">Потрібно обрати файл</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="hidden" id="imgBases64" />
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Відміна</button>
+                    <button type="button" class="btn btn-primary" id="btnModalReg">Реєстрація</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <h1 class="text-center">Контакти</h1>
+        <div class="row">
+            <div class="offset-md-3 col-md-6">
+                <form>
+                    <div class="form-group">
+                        <label for="txtLastName">Прізвище</label>
+                        <input type="text" class="form-control" id="txtLastName" />
+                        <div class="invalid-feedback">
+                            Поле обовязкове для введення.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtName">Ім'я</label>
+                        <input type="text" class="form-control" id="txtName" />
+                        <div class="invalid-feedback">
+                            Поле обовязкове для введення.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtFatherName">По батькові</label>
+                        <input type="text" class="form-control" id="txtFatherName" />
+                        <div class="invalid-feedback">
+                            Поле обовязкове для введення.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtPhone">Телефон</label>
+                        <input id="txtPhone" class="form-control" type="text" value="">
+                        <div class="invalid-feedback">
+                            Вкажіть у форматі: +38(xxx)xxx-xx-xx
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtDate">Дата народженя</label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control" readonly id="txtDate">
+                        </div>
+                        <div class="invalid-feedback">
+                            Поле обовязкове для введення.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtCountry">Країна</label>
+                        <div class="input-group date">
+                            <select class="form-control" id="txtCountry">
+                                <option selected="selected">Україна</option>
+                                <option>Россия</option>
+                                <option>England</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="img/No_Image_Available.jpg" id="imgPhoto" width="100%" />
+                        </div>
+                        <div class="col-md-9">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="fileImage" required>
+                                <label class="custom-file-label" for="fileImage" id="labelfileImage">Оберіть файл...</label>
+                                <div class="invalid-feedback">Потрібно обрати фото</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="hidden" id="imgBase64" />
+
+
+                </form>
+
+                <div class="mt-3" style="float:right">
+                    <button class="btn btn-success" id="btnClick">Add request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal" id="modalInfo" tabindex="-1" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Перевірте інформацію</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>ПІБ: <b><span id="modalName" /></b></p>
+                    <p>Телефон: <b><span id="modalPhone" /></b></p>
+                    <p>Дата народження: <b><span id="modalDate" /></b></p>
+                    <p>Країна: <b><span id="modalCountry" /></b></p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Скасувати</button>
+                    <button type="button" class="btn btn-primary">Подати</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer-section bg-with-black">
+        <div class="footer-top-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-fta">
+                            <img src="http://themeinnovation.com/demo2/html/build-up/img/home1/logo2.png" alt="">
+                            <ul class="fta-list">
+                                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Finacial Planning</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Investments Management</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Taxes Planning</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-fta">
+                            <h3 class="fta-title">Important Link</h3>
+                            <ul class="fta-list">
+                                <li><a href="#"><i class="fa fa-square"></i>Finacial Planning</a></li>
+                                <li><a href="#"><i class="fa fa-square"></i>Investments Management</a></li>
+                                <li><a href="#"><i class="fa fa-square"></i>Taxes Planning</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-fta">
+                            <h3 class="fta-title">Important Link</h3>
+                            <ul class="fta-list">
+                                <li><a href="#"><i class="fa fa-square"></i>Finacial Planning</a></li>
+                                <li><a href="#"><i class="fa fa-square"></i>Investments Management</a></li>
+                                <li><a href="#"><i class="fa fa-square"></i>Taxes Planning</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-fta">
+                            <h3 class="fta-title">Contact Us</h3>
+                            <ul class="fta-list">
+                                <li>Address: 8th floor, 379 Hudson St, New York, NY 10018</li>
+                                <li>Phone: (+1) 96 716 6879</li>
+                                <li>Email: contact@site.com</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="footer-bottom">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="fba-copyright">
+                                        <p>Copyright © 2017 Designed by EXchange. All rights reserved.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="fba-links">
+                                        <ul>
+                                            <li><a href="#">About</a></li>
+                                            <li><a href="#">Contact Us</a></li>
+                                            <li><a href="#">Term & Conditions</a></li>
+                                            <li><a href="#">Privacy Policy</a></li>
+                                            <li><a href="#">Sites Map</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/imask.js"></script>
+    <script src="/js/bootstrap-datepicker.min.js"></script>
+    <script src="/js/bootstrap-datepicker.uk.min.js"></script>
+    <script src="/js/ContactInputs.js"></script>
+    <script src="/js/regestryModelJavaScript.js"></script>
+
+
+
+
+</body>
+</html>

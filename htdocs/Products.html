@@ -1,0 +1,502 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Продукти</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/footer.css" rel="stylesheet" />
+    <link href="/css/Products.css" rel="stylesheet" />
+    <link href="css/customDialog/customDialog.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/">Головна</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contacts.html">Контакти</a>
+
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Products.html">Продукти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/callback.html">Зворотній зв'язок</a>
+
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav px-3">
+                    <li class="nav-item text-nowrap">
+                        <a class="nav-link text-warning" id="Regestry">Реєструватися</a>
+                    </li>
+                    <li class="nav-item text-nowrap">
+                        <a class="nav-link text-warning" href="/login.html">Вхід</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="modal" id="modalReg" tabindex="-1" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Реєстрація</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="txtName">Телефон</label>
+                        <input id="txtPhone" class="form-control" type="text" value="">
+                        <div class="invalid-feedback">
+                            Вкажіть у форматі: +38(xxx)xxx-xx-xx
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtLastName">Логін</label>
+                        <input type="text" class="form-control" id="txtLogin" />
+                        <div class="invalid-feedback">
+                            Поле обовязкове для введення.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtName">Пароль</label>
+                        <input type="text" class="form-control" id="txtPassword" />
+                        <div class="invalid-feedback">
+                            Паролі повині співпадати.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtName">Підтвердіть пароль</label>
+                        <input type="text" class="form-control" id="txtConfirmPassword" />
+                        <div class="invalid-feedback">
+                            Паролі повині співпадати.
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="img/No_Image_Available.jpg" id="imgPhotoe" width="100%" />
+                        </div>
+                        <div class="col-md-9">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="fileImages" required>
+                                <label class="custom-file-label" for="fileImages" id="imageName">Оберіть файл...</label>
+                                <div class="invalid-feedback">Потрібно обрати файл</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="hidden" id="imgBases64" />
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Відміна</button>
+                    <button type="button" class="btn btn-primary" id="btnModalReg">Реєстрація</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="productModal" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Додати</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+
+                        <div class="form-group">
+                            <label for="txtProductName">Назва продукту</label>
+                            <input type="text" class="form-control" id="txtProductName" placeholder="Назва продукта" />
+                            <div class="invalid-feedback">
+                                Поле обовязкове для введення.
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtDescription">Опис</label>
+                            <textarea class="form-control" id="txtDescription" placeholder="Опис продукта" cols="3"></textarea>
+                            <div class="invalid-feedback">
+                                Поле обовязкове для введення.
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="txtPrice" class="col-md-1 my-auto">Ціна</label>
+                                <div class="col-md-11">
+                                    <input type="text" class="form-control" id="txtPrice" placeholder="Ціна продукта">
+                                    <div class="invalid-feedback">
+                                        Поле обовязкове для введення.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="draganddrop">
+                            <h4 class="text-dark text-center">Фотографія користувача</h4>
+                            <input type="hidden" id="inputImgHidden" />
+                            <div class="text-muted form-text text-center" for="txtPhoto">
+                                <img id="imgPhotoBlock" src="img/No_Image_Available.jpg" width="150" height="150" class="cursor-pointer" />
+                                <label class="d-block">Оберіть фотографію, або перенесіть зображення</label>
+                                <div class="invalid-feedback">
+                                    Фотографію не обрано!
+                                </div>
+                                <div class="valid-feedback">
+                                    Файл обрано!
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCloseProduct">Закрити</button>
+                    <button type="button" class="btn btn-primary" id="btnSaveProduct">Додати</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="deleteProductModal" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Видалити</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="txtProductNameDel">Назва продукту</label>
+                            <input type="text" class="form-control" id="txtProductNameDel" placeholder="Назва продукта" />
+                            <div class="invalid-feedback">
+                                Поле обовязкове для введення.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCloseModal">Закрити</button>
+                    <button type="button" class="btn btn-primary" id="btnDeleteProductModal">Видалити</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>Список продуктів</h1>
+        <button class="btn btn-success" id="btnAddProduct" onclick="">Додати продукт</button>
+        <button class="btn btn-danger" id="btnDeleteProduct" onclick="">Видалити продукт</button>
+        <div class="d-flex justify-content-center row">
+            <div class="d-flex justify-content-center row">
+                <div id="productList" class="col-md-12">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer-section bg-with-black">
+        <div class="footer-top-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-fta">
+                            <img src="http://themeinnovation.com/demo2/html/build-up/img/home1/logo2.png" alt="">
+                            <ul class="fta-list">
+                                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Finacial Planning</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Investments Management</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Taxes Planning</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-fta">
+                            <h3 class="fta-title">Important Link</h3>
+                            <ul class="fta-list">
+                                <li><a href="#"><i class="fa fa-square"></i>Finacial Planning</a></li>
+                                <li><a href="#"><i class="fa fa-square"></i>Investments Management</a></li>
+                                <li><a href="#"><i class="fa fa-square"></i>Taxes Planning</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-fta">
+                            <h3 class="fta-title">Important Link</h3>
+                            <ul class="fta-list">
+                                <li><a href="#"><i class="fa fa-square"></i>Finacial Planning</a></li>
+                                <li><a href="#"><i class="fa fa-square"></i>Investments Management</a></li>
+                                <li><a href="#"><i class="fa fa-square"></i>Taxes Planning</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-fta">
+                            <h3 class="fta-title">Contact Us</h3>
+                            <ul class="fta-list">
+                                <li>Address: 8th floor, 379 Hudson St, New York, NY 10018</li>
+                                <li>Phone: (+1) 96 716 6879</li>
+                                <li>Email: contact@site.com</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="footer-bottom">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="fba-copyright">
+                                        <p>Copyright © 2017 Designed by EXchange. All rights reserved.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="fba-links">
+                                        <ul>
+                                            <li><a href="#">About</a></li>
+                                            <li><a href="#">Contact Us</a></li>
+                                            <li><a href="#">Term & Conditions</a></li>
+                                            <li><a href="#">Privacy Policy</a></li>
+                                            <li><a href="#">Sites Map</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootbox.all.min.js"></script>
+    <script src="/js/imask.js"></script>
+    <script src="/js/npm.js"></script>
+    <script src="/js/regestryModelJavaScript.js"></script>
+
+    <script>
+        $(function () {
+            var productModal = $("#productModal"); //витягуємо ід модалки для введеня даних додавання продукта
+            var deleteProductModal = $("#deleteProductModal"); ////витягуємо ід модалки для введеня даних видалення продукта
+
+
+            var $imgPhotoBlock = $("#imgPhotoBlock"); // витягуємо ід блоку фото в модалці productModal
+            var txtName = $("#txtProductName"); // назва продукта в модалці productModal
+            var txtPrice = $("#txtPrice");// ціна продукта в модалці productModal
+            var txtDescription = $("#txtDescription");// опис продукта в модалці productModal
+            var uploader;
+
+
+            var txtProductNameDel = $("#txtProductNameDel"); // назва продукта в модалці deleteProductModal
+
+
+            $("#btnAddProduct").on("click", function () { // нажимаємо на додати продукт
+                productModal.modal("show"); // відкривається модалка для введеня даних продукта
+
+
+            });
+
+            $("#btnSaveProduct").on("click", function () {
+                var name = txtName.val(); // присвоїли імя
+                var Price = txtPrice.val(); // присвоїли ціну
+                var description = txtDescription.val(); // присвоїли опис
+                var photo = imgPhotoBlock.src; // присвоїли фото
+
+                addProduct(name, Price, description, photo); // передали дані з модалки в шаблон продукта 337 строка
+                CloseModalAdd(); // закрили модалку 302 строка
+            }); // кнопка на модалці збереження даних подія клік
+            $("#btnCloseProduct").on("click", function () {
+                CloseModalAdd(); // викликаємо клосе модал щоб почистити дані
+            }); // кнопка на модалці закрити модалку подія клік
+
+
+
+
+            $("#btnDeleteProduct").on("click", function () {
+                deleteProductModal.modal("show");
+
+
+            });
+
+            $("#btnDeleteProductModal").on("click", function () {
+                var conteinerList = document.getElementById("productList"); // витягуєм контейнер
+                var ProductNameDel = $("#txtProductNameDel"); // читаєм імя яке шукає користувач
+                var childDelete = document.getElementById(ProductNameDel.val()); // знаходимо дані з таким іменем
+                if (childDelete == null) 
+                    alert("Такого імені не існує");// якщо таких нема попереджаєм про це
+                else 
+                    conteinerList.removeChild(childDelete); // якщо є від контейнера викликаємо removeChild() і передаєм юлок який знайшли
+                CloseModalDel(); // закриваємо модалку
+            });// кнопка на модалці видалення даних подія клік
+            $("#btnCloseModal").on("click", function () {
+                CloseModalDel();
+            });// кнопка на модалці закрити модалку подія клік
+
+
+
+            function CloseModalAdd() {
+                txtName.val("");
+                txtPrice.val("");
+                txtDescription.val("");
+                imgPhotoBlock.src = "/img/No_Image_Available.jpg";
+                productModal.modal("hide");
+            }
+            function CloseModalDel() {
+                txtProductNameDel.val("");
+                deleteProductModal.modal("hide");
+            }
+
+
+
+
+
+            $imgPhotoBlock.on("click", function () { // подія клік на фото з модалки
+                if (uploader) // перевіряємо чи є дані
+                    uploader.remove(); // якщо є видаляєм
+                uploader = $(`<input type="file" class="d-none" accept=".jpg, .jpeg, .png" />`); // закідаєм фільтр в загрузку фото
+                console.log(uploader);
+                uploader.click();
+
+                uploader.on("change", function (e) {
+                    SaveImage(uploader[0]);
+                });
+
+            });
+
+            // функція для додавання шаблона продукта
+            function addProduct(name, Price, description, photo) {
+                $("#productList").prepend(
+                    `<div class="row p-2 bg-white border rounded mt-2" id="${name}">
+                                            <div class="col-md-3 mt-1">
+                                                <img class="img-fluid img-responsive rounded product-image" src="${photo}">
+                                            </div>
+                                            <div class="col-md-6 mt-1">
+                                                <h5>${name}</h5>
+                                                <div class="d-flex flex-row">
+                                                    <div class="ratings mr-2">
+                                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                                    </div>
+                                                    <span>123</span>
+                                                </div>
+                                                <div class="mt-1 mb-1 spec-1">
+                                                    <span>100% cotton</span><span class="dot"></span><span>Light weight</span><span class="dot"></span><span>Best finish<br></span>
+                                                </div>
+                                                <div class="mt-1 mb-1 spec-1">
+                                                    <span>Unique design</span><span class="dot"></span> <span>For men</span><span class="dot"></span><span>Casual<br></span>
+                                                </div>
+                                                <p class="text-justify text-truncate para mb-0">${description}<br><br></p>
+                                            </div>
+                                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                                <div class="d-flex flex-row align-items-baseline">
+                                                    <h4 class="mr-1">$${Price}</h4>
+                                                    <button type="button" style="margin-left:auto" class="close" onclick="DeleteProd(this)" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <h6 class="text-success">Free shipping</h6>
+                                                <div class="d-flex flex-column mt-4">
+                                                    <button class="btn btn-primary btn-sm" type="button">Details</button>
+                                                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist</button>
+                                                </div>
+                                            </div>
+                                        </div>`
+                );
+            }
+
+            // #region DragenDrop
+            var draganddrop = document.getElementById('draganddrop'); // код стиряний залишаєтьсядля мене загадкою
+            draganddrop.addEventListener('dragenter', DragIn, false); // но точно знаю шо це все до драген дропа
+            draganddrop.addEventListener('dragover', DragIn, false);
+
+            draganddrop.addEventListener('dragleave', DragOut, false);
+            draganddrop.addEventListener('drop', DragOut, false);
+
+            draganddrop.addEventListener('dragenter', PreventDefaults, false);
+            draganddrop.addEventListener('dragover', PreventDefaults, false);
+
+            draganddrop.addEventListener('dragleave', PreventDefaults, false);
+            draganddrop.addEventListener('drop', PreventDefaults, false);
+
+            draganddrop.addEventListener('drop', SaveImage, false);
+
+            function DragIn(e) {
+                draganddrop.classList.add('dragIn');
+            }
+
+            function DragOut(e) {
+                draganddrop.classList.remove('dragIn');
+            }
+
+            function PreventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            // #endregion
+
+            function SaveImage(e) {
+                var files; // створили зміну для поміщеня файлу
+                if (e.files) { // перевіряємо чи ми загрузили фото
+                    files = e.files; // присвоюємо
+                } else if (e.dataTransfer) { // перевіряємо чи ми загрузили фото драгендропом
+                    files = e.dataTransfer.files; // присвоюємо
+                }
+                if (files && files[0]) { // перевіряєм чи воно не пусте
+                    var file = files[0];
+                    if (file.type.match(/^image\//)) { // перевіряємо чи тип файлу фото
+                        const reader = new FileReader(); // створюємо змінну
+                        reader.onload = function () { // після загрузки файлу виконуємо наступний код....
+                            imgPhotoBlock.src = reader.result //присвоюємо фото в поле
+                            console.log()
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                }
+            }
+        });
+
+        function DeleteProd(e) {
+            var ProductDel = document.getElementById('productList'); // витягуємо головний блок
+            bootbox.confirm("Ви точно хочете видалити об'єкт?", function (result) { // чекаємо підтвердження
+                if (result) { // якщо підтвердили то видаляєм
+                    ProductDel.removeChild(e.parentElement.parentElement.parentElement); // від батьківського діва знаходим той що потрібно видалити по ієрархії від кнопки
+                }
+            });
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Зворотній зв'язок</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/footer.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/">Головна</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contacts.html">Контакти</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Products.html">Продукти</a>
+                    </li>
+                    <li class="nav-item  active">
+                        <a class="nav-link" href="/callback.html">Зворотній зв'язок</a>
+
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav px-3">
+                    <li class="nav-item text-nowrap">
+                        <a class="nav-link text-warning" id="Regestry">Реєструватися</a>
+                    </li>
+                    <li class="nav-item text-nowrap">
+                        <a class="nav-link text-warning" href="/login.html">Вхід</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="modal" id="modalReg" tabindex="-1" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Реєстрація</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="txtName">Телефон</label>
+                        <input id="txtPhone" class="form-control" type="text" value="">
+                        <div class="invalid-feedback">
+                            Вкажіть у форматі: +38(xxx)xxx-xx-xx
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtLastName">Логін</label>
+                        <input type="text" class="form-control" id="txtLogin" />
+                        <div class="invalid-feedback">
+                            Поле обовязкове для введення.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtName">Пароль</label>
+                        <input type="text" class="form-control" id="txtPassword" />
+                        <div class="invalid-feedback">
+                            Паролі повині співпадати.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtName">Підтвердіть пароль</label>
+                        <input type="text" class="form-control" id="txtConfirmPassword" />
+                        <div class="invalid-feedback">
+                            Паролі повині співпадати.
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="img/No_Image_Available.jpg" id="imgPhotoe" width="100%" />
+                        </div>
+                        <div class="col-md-9">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="fileImages" required>
+                                <label class="custom-file-label" for="fileImages" id="imageName">Оберіть файл...</label>
+                                <div class="invalid-feedback">Потрібно обрати файл</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="hidden" id="imgBases64" />
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Відміна</button>
+                    <button type="button" class="btn btn-primary" id="btnModalReg">Реєстрація</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <h1 class="text-center">Зворотній зв'язок</h1>
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <form>
+                    <div class="form-group">
+                        <label for="lastname">Прізвище</label>
+                        <input type="text" class="form-control" id="lastname" />
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Ім'я</label>
+                        <input type="text" class="form-control" id="name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Опис</label>
+                        <textarea id="description"
+                                  rows="10"
+                                  cols="20"
+                                  class="form-control"></textarea>
+                    </div>
+                    <div style="float: right;">
+                        <input type="button"
+                               class="btn btn-default"
+                               value="Скасувати" />
+
+                        <input type="button"
+                               class="btn btn-success"
+                               value="Повідомити" />
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+    <footer class="footer-section bg-with-black">
+        <div class="footer-top-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-fta">
+                            <img src="http://themeinnovation.com/demo2/html/build-up/img/home1/logo2.png" alt="">
+                            <ul class="fta-list">
+                                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Finacial Planning</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Investments Management</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Taxes Planning</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-fta">
+                            <h3 class="fta-title">Important Link</h3>
+                            <ul class="fta-list">
+                                <li><a href="#"><i class="fa fa-square"></i>Finacial Planning</a></li>
+                                <li><a href="#"><i class="fa fa-square"></i>Investments Management</a></li>
+                                <li><a href="#"><i class="fa fa-square"></i>Taxes Planning</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-fta">
+                            <h3 class="fta-title">Important Link</h3>
+                            <ul class="fta-list">
+                                <li><a href="#"><i class="fa fa-square"></i>Finacial Planning</a></li>
+                                <li><a href="#"><i class="fa fa-square"></i>Investments Management</a></li>
+                                <li><a href="#"><i class="fa fa-square"></i>Taxes Planning</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-fta">
+                            <h3 class="fta-title">Contact Us</h3>
+                            <ul class="fta-list">
+                                <li>Address: 8th floor, 379 Hudson St, New York, NY 10018</li>
+                                <li>Phone: (+1) 96 716 6879</li>
+                                <li>Email: contact@site.com</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="footer-bottom">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="fba-copyright">
+                                        <p>Copyright © 2017 Designed by EXchange. All rights reserved.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="fba-links">
+                                        <ul>
+                                            <li><a href="#">About</a></li>
+                                            <li><a href="#">Contact Us</a></li>
+                                            <li><a href="#">Term & Conditions</a></li>
+                                            <li><a href="#">Privacy Policy</a></li>
+                                            <li><a href="#">Sites Map</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/imask.js"></script>
+    <script src="/js/regestryModelJavaScript.js"></script>
+
+</body>
+</html>
